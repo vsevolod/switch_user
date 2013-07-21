@@ -30,6 +30,10 @@ module SwitchUserHelper
     session[:original_user_id].present?
   end
 
+  def original_user_name
+    session[:original_user_name].present? ? session[:original_user_name] : ""
+  end
+
   private
 
   def tag_value(user, id_name, scope)
