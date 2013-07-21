@@ -27,7 +27,7 @@ module SwitchUserHelper
   end
 
   def is_switched
-    provider.original_user.present?
+    session[:original_user_id].present?
   end
 
   private

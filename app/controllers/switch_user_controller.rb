@@ -30,7 +30,7 @@ class SwitchUserController < ApplicationController
   end
 
   def available?
-    SwitchUser.guard_class.new(self, provider).controller_available? || is_switched
+    SwitchUser.guard_class.new(self, provider).controller_available? || session[:original_user_id].present?
   end
 
   def handle_request(params)
