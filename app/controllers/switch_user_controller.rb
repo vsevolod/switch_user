@@ -2,6 +2,7 @@ class SwitchUserController < ApplicationController
   before_filter :developer_modes_only
 
   def set_current_user
+    provider.remember_current_user(true)
     handle_request(params)
 
     redirect_to(SwitchUser.redirect_path.call(request, params))
@@ -14,6 +15,11 @@ class SwitchUserController < ApplicationController
     end
 
     redirect_to(SwitchUser.redirect_path.call(request, params))
+  end
+
+  def switch_back
+    params[:scope_identifier] = provider.original_user.id if provider.original_user.present?
+    handle_request(params)
   end
 
   private

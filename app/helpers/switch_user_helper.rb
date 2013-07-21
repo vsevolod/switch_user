@@ -26,6 +26,10 @@ module SwitchUserHelper
            }
   end
 
+  def is_switched
+    provider.original_user.present?
+  end
+
   private
 
   def tag_value(user, id_name, scope)
