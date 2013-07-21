@@ -18,7 +18,7 @@ class SwitchUserController < ApplicationController
   end
 
   def switch_back
-    params[:scope_identifier] = session[:original_user_id] if session[:original_user_id].present?
+    params[:scope_identifier] = "user_#{session[:original_user_id]}" if session[:original_user_id].present?
     session[:original_user_id] = nil
     handle_request(params)
   end
