@@ -3,6 +3,7 @@ class SwitchUserController < ApplicationController
 
   def set_current_user
     session[:original_user_id] = current_user.id
+    session[:original_user_name] = u.attributes["name"].nil? || current_user.name == "" ? u.email : u.name
     handle_request(params)
 
     redirect_to(SwitchUser.redirect_path.call(request, params))
