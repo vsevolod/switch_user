@@ -2,7 +2,7 @@ class SwitchUserController < ApplicationController
   before_filter :developer_modes_only
 
   def set_current_user
-    provider.remember_current_user(true)
+    session[:original_user] = current_user
     handle_request(params)
 
     redirect_to(SwitchUser.redirect_path.call(request, params))
