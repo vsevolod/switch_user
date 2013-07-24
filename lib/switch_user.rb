@@ -47,6 +47,7 @@ module SwitchUser
     self.controller_guard = lambda { |current_user, request| Rails.env.development? }
     self.view_guard = lambda { |current_user, request| Rails.env.development? }
     self.redirect_path = lambda { |request, params| request.env["HTTP_REFERER"] ? :back : root_path }
+    self.switch_back_path = lambda { |request, params| request.env["HTTP_REFERER"] ? :back : root_path }
     self.session_key = :user_id
     self.helper_with_guest = true
     self.switch_back = false

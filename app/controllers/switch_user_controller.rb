@@ -21,7 +21,7 @@ class SwitchUserController < ApplicationController
     params[:scope_identifier] = "user_#{session[:original_user_id]}" if session[:original_user_id].present?
     session[:original_user_id] = nil
     handle_request(params)
-    redirect_to(SwitchUser.redirect_path.call(request, params))
+    redirect_to(SwitchUser.switch_back_path.call(request, params))
   end
 
   private
