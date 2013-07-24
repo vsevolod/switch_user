@@ -16,6 +16,7 @@ module SwitchUser
   mattr_accessor :available_users_identifiers
   mattr_accessor :available_users_names
   mattr_accessor :redirect_path
+  mattr_accessor :switch_back_path
   mattr_accessor :session_key
   mattr_accessor :helper_with_guest
   mattr_accessor :switch_back
