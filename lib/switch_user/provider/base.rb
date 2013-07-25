@@ -29,7 +29,6 @@ module SwitchUser
         end
       end
       
-      helper_method :original_user
       def original_user
         @controller.session[:original_user]
       end
